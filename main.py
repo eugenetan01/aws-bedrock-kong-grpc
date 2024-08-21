@@ -2,12 +2,12 @@ import uvicorn
 from fastapi import FastAPI
 from concurrent import futures
 import grpc
-from helloworld import hello_pb2, hello_pb2_grpc
+from ragservice import rag_pb2, rag_pb2_grpc
 import rag
 
-class HelloService(hello_pb2_grpc.HelloServiceServicer):
-    def SayHello(self, request, context):
-        response = hello_pb2.HelloReply()
+class RagService(rag_pb2_grpc.RagServiceServicer):
+    def RagTemplate(self, request, context):
+        response = rag_pb2.RagReply()
         # response.message = request.prompt
         response.message = rag.rag_flow(request.prompt)
         return response
@@ -15,7 +15,7 @@ class HelloService(hello_pb2_grpc.HelloServiceServicer):
 
 def serve_grpc():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    hello_pb2_grpc.add_HelloServiceServicer_to_server(HelloService(), server)
+    rag_pb2_grpc.add_RagServiceServicer_to_server(RagService(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()

@@ -12,7 +12,7 @@ __2. Test if it's working by running `aws s3 ls` - you should see a list of s3 b
 __1. run the `pip3 install -r requirements.txt`__
 
 __2. run the below command to generate the necessary protocol buffers__
-  - `python -m grpc_tools.protoc -I. --python_out=./helloworld --grpc_python_out=./helloworld hello.proto`
+  - `python -m grpc_tools.protoc -I. --python_out=./ragservice --grpc_python_out=./ragservice rag.proto`
 
 __3. change the import statement to `from . import hello_pb2 as hello__pb2` instead of `import hello_pb2 as hello__pb2` in the hello_pb2_grpc.py file__
 
@@ -94,6 +94,9 @@ __8. run the main.py__
 __9. test the client connectivity by connecting to the grpc server and ensuring it connects to localhost:50051 instead of 9080__
   - run `python3 client.py`
   - you should see a response from LLM in console
+
+__10. Run the streamlit app to start asking the gRPC service question__
+  - `streamlit run ui.py`
 
 # Notes
 

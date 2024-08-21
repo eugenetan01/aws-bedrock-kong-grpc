@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from . import hello_pb2 as hello__pb2
+from . import rag_pb2 as rag__pb2
 
 GRPC_GENERATED_VERSION = '1.65.5'
 GRPC_VERSION = grpc.__version__
@@ -20,7 +20,7 @@ except ImportError:
 if _version_not_supported:
     warnings.warn(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in hello_pb2_grpc.py depends on'
+        + f' but the generated code in rag_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -30,7 +30,7 @@ if _version_not_supported:
     )
 
 
-class HelloServiceStub(object):
+class RagServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -39,43 +39,43 @@ class HelloServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.SayHello = channel.unary_unary(
-                '/helloworld.HelloService/SayHello',
-                request_serializer=hello__pb2.HelloRequest.SerializeToString,
-                response_deserializer=hello__pb2.HelloReply.FromString,
+        self.RagTemplate = channel.unary_unary(
+                '/ragservice.RagService/RagTemplate',
+                request_serializer=rag__pb2.RagRequest.SerializeToString,
+                response_deserializer=rag__pb2.RagReply.FromString,
                 _registered_method=True)
 
 
-class HelloServiceServicer(object):
+class RagServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def SayHello(self, request, context):
+    def RagTemplate(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_HelloServiceServicer_to_server(servicer, server):
+def add_RagServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'SayHello': grpc.unary_unary_rpc_method_handler(
-                    servicer.SayHello,
-                    request_deserializer=hello__pb2.HelloRequest.FromString,
-                    response_serializer=hello__pb2.HelloReply.SerializeToString,
+            'RagTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.RagTemplate,
+                    request_deserializer=rag__pb2.RagRequest.FromString,
+                    response_serializer=rag__pb2.RagReply.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'helloworld.HelloService', rpc_method_handlers)
+            'ragservice.RagService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('helloworld.HelloService', rpc_method_handlers)
+    server.add_registered_method_handlers('ragservice.RagService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class HelloService(object):
+class RagService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def SayHello(request,
+    def RagTemplate(request,
             target,
             options=(),
             channel_credentials=None,
@@ -88,9 +88,9 @@ class HelloService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/helloworld.HelloService/SayHello',
-            hello__pb2.HelloRequest.SerializeToString,
-            hello__pb2.HelloReply.FromString,
+            '/ragservice.RagService/RagTemplate',
+            rag__pb2.RagRequest.SerializeToString,
+            rag__pb2.RagReply.FromString,
             options,
             channel_credentials,
             insecure,

@@ -11,3 +11,4 @@ coloredlogs>=15.0.1
 jq==1.7.0
 opensearch-py==2.5.0
 loguru==0.7.2
+streamlit
