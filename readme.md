@@ -2,7 +2,7 @@
 
 __1. If having issues with aws cli, delete the contents in `~/.aws/credentials` and go to okta tile "AWS - Kong" -> click "Access Keys" and copy paste "Option 2: Add a profile to your AWS credentials file" into the `~/.aws/credentials` file__
 
-__2. Test if it's working by running `aws s3 ls` - you should see a list of s3 buckets in terminal_
+__2. Test if it's working by running `aws s3 ls` - you should see a list of s3 buckets in terminal__
 
 # Setup
 
