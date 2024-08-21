@@ -13,15 +13,12 @@ __2. run the below command to generate the necessary protocol buffers__
 
 __3. change the import statement to `from . import hello_pb2 as hello__pb2` instead of `import hello_pb2 as hello__pb2` in the hello_pb2_grpc.py file__
 
-<<<<<<< HEAD
-=======
 __4. run the main.py__
   `python3 main.py`
 
 __5. test the client connectivity by connecting to the grpc server and ensuring it connects to localhost:50051 instead of 9080__
   `python3 client.py`
 
->>>>>>> 50dd75696e335440f94d4f6af5f5c1cafd0064cf
 __4. create a docker container for the kong gateway. use the below to spin up the docker image__
   ```
   docker run -d --name kong-gateway \
@@ -66,7 +63,6 @@ __5. Create a service and route__
     --data paths=/
   ```
 
-<<<<<<< HEAD
 __6. In the first step we will launch an OpenSearch cluster using Terraform.__
 
       ```bash
