@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ragservice;
+
+service RagService {
+  rpc RagTemplate (RagRequest) returns (RagReply);
+}
+
+message RagRequest {
+  string prompt = 1;
+}
+
+message RagReply {
+  string message = 1;
+}
