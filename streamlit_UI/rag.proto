@@ -8,6 +8,7 @@ service RagService {
 
 message RagRequest {
   string prompt = 1;
+  string data_plane_node = 2;
 }
 
 message RagReply {

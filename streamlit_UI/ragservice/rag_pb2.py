@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\trag.proto\x12\nragservice\"\x1c\n\nRagRequest\x12\x0e\n\x06prompt\x18\x01 \x01(\t\"\x1b\n\x08RagReply\x12\x0f\n\x07message\x18\x01 \x01(\t2I\n\nRagService\x12;\n\x0bRagTemplate\x12\x16.ragservice.RagRequest\x1a\x14.ragservice.RagReplyb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\trag.proto\x12\nragservice\"5\n\nRagRequest\x12\x0e\n\x06prompt\x18\x01 \x01(\t\x12\x17\n\x0f\x64\x61ta_plane_node\x18\x02 \x01(\t\"\x1b\n\x08RagReply\x12\x0f\n\x07message\x18\x01 \x01(\t2I\n\nRagService\x12;\n\x0bRagTemplate\x12\x16.ragservice.RagRequest\x1a\x14.ragservice.RagReplyb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,9 +32,9 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'rag_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_RAGREQUEST']._serialized_start=25
-  _globals['_RAGREQUEST']._serialized_end=53
-  _globals['_RAGREPLY']._serialized_start=55
-  _globals['_RAGREPLY']._serialized_end=82
-  _globals['_RAGSERVICE']._serialized_start=84
-  _globals['_RAGSERVICE']._serialized_end=157
+  _globals['_RAGREQUEST']._serialized_end=78
+  _globals['_RAGREPLY']._serialized_start=80
+  _globals['_RAGREPLY']._serialized_end=107
+  _globals['_RAGSERVICE']._serialized_start=109
+  _globals['_RAGSERVICE']._serialized_end=182
 # @@protoc_insertion_point(module_scope)

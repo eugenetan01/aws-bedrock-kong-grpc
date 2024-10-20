@@ -5,7 +5,7 @@ from ragservice import rag_pb2, rag_pb2_grpc
 def run(prompt, data_plane_node):
     with grpc.insecure_channel(data_plane_node) as channel:
         stub = rag_pb2_grpc.RagServiceStub(channel)
-        response = stub.RagTemplate(rag_pb2.RagRequest(prompt=prompt))
+        response = stub.RagTemplate(rag_pb2.RagRequest(prompt=prompt, data_plane_node=data_plane_node))
     return response.message
 
 def main():
